@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>Managing rules</h1>
+			<p>Rules in IoT Assistant automate actions based on conditions involving a device. Supported rules include:</p>
+			<ul class="ul-content">
+				<li>Sending notifications if a sensor value reaches a threshold</li>
+				<li>Setting actuator values if a sensor value reaches a threshold</li>
+				<li>Sending notificationss if GPS position is outside a predefined range</li>
+				<li>Taking a camera picture if a sensor value reach some threshold</li>
+				<li>Enabling or disabling a rule if a sensor value reaches a threshold</li>
+			</ul>
+			<h2>Installing a Rule</h2>
+			<h3>Installing a Sensor Alarm Rule</h3>
+			<p>This rule allows you to receive notifications if a sensor value reaches a specified threshold. To install it, go to<i>Install</i> > <i>Install sensor rule</i> to open the setup wizard.</p>
+			<p>1 - Select the <b>sensor</b> and a <b>property</b>, then click <i>Next</i></p>
+			<a href="../images/rules/wizard1.png">
+				<img  src="../images/rules/wizard1.png">
+			</a>
+			<p>2 - Select <b>Sensor Alarm</b> rule and click <i>Next</i></p>
+			<a href="../images/rules/wizard2.png">
+				<img  src="../images/rules/wizard2.png">
+			</a>
+			</p>3 - In the final step, provide the following details::</p> 
+			<p><b>Threshold</b>: The value at which a notification will be triggered.</p>
+			<p><b>Minimum time between triggers</b>: The interval for receiving notifications if the threshold is reached multiple times.</p>
+			<p><b>Notification type</b>: Choose web (notifications will be displayed on <i>Notifications</i> page) or Telegram</p>
+			<p>For example, to receive <b>Telegram</b> notifications if the pool temperature reaches or exceeds 32°C, set the threshold as <b>>= 32</b>. To receive only one notification per day, set the minimum time between triggers to <b>24 hours</b>.</p>
+			<a href="../images/rules/wizard3.png">
+				<img  src="../images/rules/wizard3.png">
+			</a>
+			<p>4 - Finally, click on <i>Finish</i> to proceed. If everything is set up correctly, you'll be redirected to the rules page when installed rules are listed. On this page you can enable/disable a rule or delete it.<p>
+			<a href="../images/rules/wizard4.png">
+				<img  src="../images/rules/wizard4.png">
+			</a>
+			<p>5 - After installing the rule, if the temperature exceeds the predefined threshold, you will receive a Telegram notification similar to this:</p>
+			<a href="../images/rules/wizard5.png">
+				<img  src="../images/rules/wizard5.png">
+			</a>
+			<h3>Installing a Trigger Actuator Rule</h3>
+			<p>This rule lets you set an actuator value when a sensor value reaches a specified threshold. To install it, go to <i>Install</i> > <i>Install sensor rule</i> to open the setup wizard.</p>
+			<p>1 - Select the <b>sensor</b> and the <b>property</b> and click <i>Next</i></p>
+			<a href="../images/rules/wizard6.png">
+				<img  src="../images/rules/wizard6.png">
+			</a>
+			<p>2 - Select <b>Trigger Actuator</b> rule and click <i>Next</i></p>
+			<a href="../images/rules/wizard7.png">
+				<img  src="../images/rules/wizard7.png">
+			</a>
+			</p>3 - In the final step, provide the following details:</p> 
+			<p><b>Threshold</b>: The value at which the actuator value change will be triggered.</p> 
+			<p><b>Minimum time between triggers</b>: The interval for triggering the rule if the threshold is reached multiple times.</p>
+			<p><b>Notification type</b>: Specify if you want to receive notifications via Telegram when the rule is triggered</p>
+			<a href="../images/rules/wizard8.png">
+				<img  src="../images/rules/wizard8.png">
+			</a>
+			<p>4 - Click on <i>Finish</i>.  If everything is set up correctly, you'll be redirected to the rules page.<p>
+			<a href="../images/rules/wizard9.png">
+				<img  src="../images/rules/wizard9.png">
+			</a>
+			<h3>Installing a Enable Rule</h3>
+			<p>This rule enables or disables an installed rule when a sensor value reaches a specific threshold. This is useful, for example, to toggle a sensor alarm on or off using another button sensor. To install this rule, go to <i>Install</i> > <i>Install sensor rule</i> to open the setup wizard.</p>
+			<p>1 - Select the <b>sensor</b> and <b>property</b> and click <i>Next</i></p>
+			<a href="../images/rules/wizard10.png">
+				<img  src="../images/rules/wizard10.png">
+			</a>
+			<p>2 - Select <b>Enable</b> rule and click on <i>Next</i></p>
+			<a href="../images/rules/wizard11.png">
+				<img  src="../images/rules/wizard11.png">
+			</a>
+			</p>3 - In the final step, provide the following details:</p> 
+			<p><b>Threshold</b>: The value at which the enabling or disabling rule action will be triggered.</p> 
+			<p><b>Minimum time between triggers</b>: The interval for triggering the rule if the threshold is reached multiple times.</p>
+			<p><b>Notification type</b>: Specify if you want to receive notifications via Telegram when the rule is triggered</p>
+			<p><b>Rule Id</b>: Specify the rule that will be disabled/enabled when the threshold is reached. You can find the Rule Id on the rules page.</p>
+			<a href="../images/rules/wizard12.png">
+				<img  src="../images/rules/wizard12.png">
+			</a>
+			<p>4 - Click on <i>Finish</i>.  If everything is set up correctly, you'll be redirected to the rules page.<p>
+			<a href="../images/rules/wizard13.png">
+				<img  src="../images/rules/wizard13.png">
+			</a>
+			<h3>Installing a Camera Picture Rule</h3>
+			<p>This rule allows you to receive notifications with a camera picture attached when a sensor value reaches a specified threshold. To install this rule, go to <i>Install</i> > <i>Install sensor rule</i> to open the setup wizard.</p>
+			<p>1 - Select the <b>sensor</b> and <b>property</b> and click <i>Next</i></p>
+			<a href="../images/rules/wizard15.png">
+				<img  src="../images/rules/wizard15.png">
+			</a>
+			<p>2 - Select <b>Take Camera Picture</b> rule and click <i>Next</i></p>
+			<a href="../images/rules/wizard14.png">
+				<img  src="../images/rules/wizard14.png">
+			</a>
+			</p>3 - In the final step, provide the following details:</p> 
+			<p><b>Threshold</b>: The value at which the enabling or disabling rule action will be triggered.</p> 
+			<p><b>Minimum time between triggers</b>: The interval for triggering the rule if the threshold is reached multiple times.</p>
+			<p><b>Notification type</b>: Specify if you want to receive notifications via Telegram when the rule is triggered</p>
+			<p><b>Camera</b>: Specify the camera taking the picture when the rule is triggered.</p>
+			<p>In this example we want to receive a <b>Telegram</b> notification when the motion detect movement and get a camera picture with the notification.</p>
+			<a href="../images/rules/wizard16.png">
+				<img  src="../images/rules/wizard16.png">
+			</a>
+			<p>4 - Click on <i>Finish</i>. If everything is set up correctly, you'll be redirected to the rules page.<p>
+			<a href="../images/rules/wizard17.png">
+				<img  src="../images/rules/wizard17.png">
+			</a>
+			<p>5 - After installing the rule, if the motion sensor detects movement we will get a camera picture with a Telegram notification similar to this:</p>
+			<a href="../images/rules/wizard18.png">
+				<img  src="../images/rules/wizard18.png">
+			</a>
+			<h3>Installing a Out Of range GPS Rule</h3>
+			<p>This rule allows you to receive notifications when a GPS device goes outside a predefined perimeter. To install this rule go on <i>Install</i> > <i>Install GPS rule</i> to open the setup wizard.</p>
+			<p>1 - Select <b>GPS</b> device, then click <i>Next</i></p>
+			<a href="../images/rules/wizard19.png">
+				<img  src="../images/rules/wizard19.png">
+			</a>
+			<p>2 - Select <b>Out Of Range</b> rule and click <i>Next</i></p>
+			<a href="../images/rules/wizard20.png">
+				<img  src="../images/rules/wizard20.png">
+			</a>
+			</p>3 - In the final step, provide the following details:</p> 
+			<p><b>Latitude</b>, <b>Longitude</b> and  <b>Range:</b> Set the predefined position and the distance within which you will receive a notification if the GPS device moves beyond this range.</p>
+			<p><b>Minimum time between triggers:</b> The interval for receiving notifications when the position is updated multiple times.</p>
+			<p><b>Notification type:</b> Choose whether to receive notifications via web (displayed under <i>Notifications</i>) or Telegram</p>
+			<p>For example, to receive Telegram notifications if the GPS position is more than 400 meters from the center of Madrid (40.416775, -3.703790), set these parameters accordingly:</p>
+			<a href="../images/rules/wizard21.png">
+				<img  src="../images/rules/wizard21.png">
+			</a>
+			<p>4 - Finally, click on <i>Finish</i>.If everything is set up correctly, you'll be redirected to the rules page.<p>
+			<a href="../images/rules/wizard22.png">
+				<img  src="../images/rules/wizard22.png">
+			</a>
+			<p>5 - After installing the rule you will get Telegram notifications similar to this if the GPS device moves beyond the predefined range:</p>
+			<a href="../images/rules/wizard23.png">
+				<img  src="../images/rules/wizard23.png">
+			</a>
+		</section>
+
+
+		
+		
+		
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

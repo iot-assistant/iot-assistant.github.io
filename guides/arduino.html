@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>ESP32 Arduino libraries and examples</h1>
+			<p>The provided libraries and examples for the ESP32 cover typical IoT device behaviors, so usually, you only need to copy the example and adjust the settings for your specific project.</p>
+			<h2>Sensors</h2>
+			<p>When a sensor is integrated into a computer system, its behavior generally falls into one of these categories:</p>
+			<ul class="ul-content">
+				<li>Publishing a value periodically over a network interface</li>
+				<li>Publishing a value periodically and also whenever the value changes</li>
+				<li>Any of the above but entering sleep mode in between</li>				
+			</ul>
+			<h3>Libraries</h3>
+			<h4>UML Class Diagram</h4>
+			<a href="../images/arduino/sensorsclassdiagram.png">
+				<img  src="../images/arduino/sensorsclassdiagram.png">
+			</a>
+			<p>The main library classes provided are:</p>
+			<ul class="ul-content">
+				<li><b>IoTSensor:</b> Abstract base class that handles periodic publishing of sensor values in collaboration with <i>SensorPublishInterface</i>. It allows registering a callback that will be called to retrieve sensor values periodically.</li>
+				<li><b>SensorPublishInterface:</b> Abstract class responsible for sending sensor values over a network interface, with derived classes <i>MqttSensorPublishInterface</i> and </i>LoraSensorPublishInterface</i>.
+				<li><b>ESP32WiFiSTA:</b> Manages WiFi connectivity and provides <i>Client</i> objects needed by some <i>SensorPublishInterface</i> subclasses.
+				<li><b>ESP32Sensor:</b> Extends <i>IoTSensor</i> with the added capability to optionally enter sleep mode between value publications. Objects can also be configured to automatically get sensor values from GPIOs</li>
+				<li><b>FireBeetleC6Sensor, M5AtomSensor...:</b> Extends <i>ESP32Sensor</i> with the additional ability to initialize and display information via an LCD or LED, depending on the board.</li>
+			</ul>
+			<h3>Examples</h3>
+			<h4>Publishing a value periodically over a network interface</h4>
+			<ul class="ul-content">
+				<li><b><a href="#"><b>sketch_M5Stack_Env_III_Unit_Sensor_M5Stack_Atom_MQTT.ino</b></a>:</b> <b>Ambient MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atom-lite-esp32-development-kit"><i>M5Stack Atom</i></a> connected to <a href="https://shop.m5stack.com/products/env-iii-unit-with-temperature-humidity-air-pressure-sensor-sht30-qmp6988"><i>ENV III unit</i></a> to publish temperature, humidity and air pressure every minute.</li>
+				<li><b><a href="#"><b>sketch_DFRobot_UV_Sensor_Heltec_WiFiLora32V3_LORA.ino</b></a>:</b> <b>UV Lora sensor</b> using a <a href="https://heltec.org/project/wifi-lora-32-v3/"><i>Heltec WiFi Lora 32 V3</i></a> connected to <a href="https://www.dfrobot.com/product-1273.html"><i>GUVA-S12SD UV sensor</i></a> to publish UV Index every 10 minutes.</li>
+			</ul>
+			<h4>Publishing a value periodically and also whenever the value changes</h4>
+			<ul class="ul-content">
+				<li><b><a href="#"><b>sketch_M5Stack_DLight_Unit_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Light MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/dlight-unit-ambient-light-sensor-bh1750fvi-tr"><i>Light Unit</i></a> to publish light level every 10 minutes and also if light level changes >= abs(300 lux)</li>
+				<li><b><a href="#"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and also when it detects movement.</li>
+			</ul>
+			<h4>Any of the above but entering sleep mode in between</h4>
+			<ul class="ul-content">
+				<li><b><a href="#"><b>sketch_DFRobot_Soil_Moisture_Sensor_FireBeetleC6_MQTT_LowPower.ino</b></a>:</b> <b>Soil Moisture MQTT sensor</b> using a <a href="https://www.dfrobot.com/product-2771.html"><i>FireBeetle C6</i></a> connected to <a href="https://www.dfrobot.com/product-1385.html"><i>Soil Moisture sensor</i></a> to publish soil moisture RH% and battery level every ten minutes and sleeping in between.</li>
+				<li><b><a href="#"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_SSL_LowPower.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and sleep. It detects movement even during sleep mode.</li>
+			</ul>
+			<h2>Actuators</h2>
+			<p>When integrated into a computer system, an actuator receives value updates and periodically publishes its current value, including changes. However, actuators cannot enter sleep mode since they must always be ready to receive updates (the ESP32 cannot wake up from receiving network frames).</p>
+			<h3>Libraries</h3>
+			<p>The main library classes provided are:</p>
+			<ul class="ul-content">
+				<li><b>IoTActuator:</b> Abstract base class that manages periodic value publishing in collaboration with <i>ActuatorPublishInterface</i>. It allows registering callbacks to retrieve and update actuator values.</li>
+				<li><b>ActuatorPublishInterface:</b> Abstract class responsible for sending sensor values over a network interface, with derived classes <i>MqttActuatorPublishInterface</i>. It allows registering a callback that is invoked when an actuator value change command is received. 
+				<li><b>ESP32WiFiSTA:</b> Manages WiFi connectivity and provides <i>Client</i> objects needed by some <i>ActuatorPublishInterface</i> subclasses.
+				<li><b>ESP32Actuator:</b> Extends <i>IoTSensor</i> with the added capability to automatically get and update GPIOs values</li>
+				<li><b>M5AtomActuator, M5AtomS3Actuator...:</b> Extends <i>ESP32Actuator</i> with the additional ability to inizialite display information via an LCD or LED, depending on the board.</li>
+			</ul>
+			<h3>Examples</h3>
+			<ul class="ul-content">
+				<li><b><a href="#"><b>sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL</b></a>:</b> <b>Socket MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atom-socket-kit-hlw8023-jp-us"><i>M5Stack Atom Socket</i></a> to turn on/off any socket plugged device.</li>
+				<li><b><a href="#"><b>sketch_M5Stack_AtomSpeaker_Flash_Unit_M5Stack_Atom_MQTT_SSL</b></a>:</b> <b>Speaker MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atomic-speaker-base-ns4168"><i>M5Stack Atom Speaker</i></a> to play any sound.</li>
+			</ul>
+			<h2>GPS</h2>
+			<p>When an GPS is integrated into a computer system, its behavior typically involves publishing the current position periodically or when it changes, and maybe enter sleep mode in between.</p>
+			<h3>Libraries</h3>
+			<p>The main library classes provided are:</p>
+			<ul class="ul-content">
+				<li><b>IoTGPS:</b> Abstract base class that manages periodic value publishing in collaboration with <i>ActuatorPublishInterface</i>. It allows registering callbacks to retrieve and update actuator values.</li>
+				<li><b>GPSPublishInterface:</b> Abstract class responsible for sending sensor values over a network interface, with derived classes <i>MqttGPSPublishInterface</i> and <i>LoraGPSPublishInterface</i>.
+				<li><b>ESP32WiFiSTA:</b> Manages WiFi connectivity and provides <i>Client</i> objects needed by some <i>GPSPublishInterface</i> subclasses.
+				<li><b>ESP32GPS:</b> Extends <i>IoTGPS</i> with the added capability to optionally enter sleep mode between position publications</li>
+				<li><b>M5AtomGPS, M5AtomS3GPS...:</b> Extends <i>ESP32GPS</i> with the additional ability to initialize and display information via an LCD or LED, depending on the board.</li>
+			</ul>
+			<h3>Examples</h3>
+			<ul class="ul-content">
+				<li><b><a href="#"><b>sketch_Gps_Heltec_WirelessTracker_Lora_LowPower</b></a>:</b> <b>Lora GPS</b> using a <a href="https://heltec.org/project/wireless-tracker/"><i>Heltec Wireless Tracker</i></a> publishing its position every 10 minutes and sleeping in between.</li>
+			</ul>
+		</section>
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

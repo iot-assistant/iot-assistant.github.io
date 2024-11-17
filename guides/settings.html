@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>Configuring IoT Assistant</h1>
+			<p>In order to receive Telegram notifications and connect to your devices, you first need to configure your IoT Assistant instance. Click on <i>System</i> > <i>Settings</i> to open the settings wizard.</p>
+			<p><u>If you are not going to use certain integration (e.g The Things Network or you dont want to receive notifications) you can leave the related form blank and click <i>Next</i></u></p>
+			<p>1 - Enter the current <b>password</b> and optionally change it. Then click <i>next</i></p>
+			<a href="../images/settings/wizard1.png">
+				<img  src="../images/settings/wizard1.png">
+			</a>
+			<p>2 - Enter the <b>MQTT</b> settings to connect with your MQTT devices. You can use a locally deployed broker (e.g with Mosquito) or a public one like <a href="https://www.hivemq.com/company/get-hivemq/">HiveMQ Cloud</a>. The broker URL will typically look like <i>tcp://somedomain:port</i> or <i>ssl://somedomain:port</i></p>
+			<p>If authentication is required, provide the username and password otherwise keep this fields blank. Also, provide a unique client ID (you can optionally generate a random one).</p>
+			<a href="../images/settings/wizard2.png">
+				<img  src="../images/settings/wizard2.png">
+			</a>
+			</p>3 - Enter <b>The Thing Network</b> settings to connect with your The Thing Network devices. Also, provide a unique client ID (you can optionally generate a random one). Get the broker, username and password from <a href="https://console.cloud.thethings.network/"> The Things Network console</a>.</p>
+			<a href="../images/settings/wizard3.png">
+				<img  src="../images/settings/wizard3.png">
+			</a>
+			<a href="../images/settings/wizard4.png">
+				<img  src="../images/settings/wizard4.png">
+			</a>
+			<p>4 - Enter your <b>Telegram</b> bot settings to receive Telegram notifications. If you are not sure how to fill this fields follow this <a href="https://docs.tracardi.com/qa/how_can_i_get_telegram_bot/">guide</a><p>
+			<a href="../images/settings/wizard5.png">
+				<img  src="../images/settings/wizard5.png">
+			</a>
+			<p>5 - Finally we click <i>Finish</i> to proceed. If everything is set up correctly, you will be redirected to the system information page, where the connection status will be displayed.</p>
+			<a href="../images/settings/wizard6.png">
+				<img  src="../images/settings/wizard6.png">
+			</a>
+		</section>
+
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

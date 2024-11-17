@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>IoT Assistant design</h1>
+			<p><p>This application was developed as part of this <a href="https://escuela.it/cursos/practicas-desarrollo-aplicaciones-tutorizadas">trainning course</a> at <a href="https://escuela.it/">EscuelaIt.</a> The development process used was <a href="https://en.wikipedia.org/wiki/Rational_unified_process">RUP</a>. The artifacts produced by RUP activities (typically UML diagrams) were used to document the architecture using <a href="https://en.wikipedia.org/wiki/4%2B1_architectural_view_model">Philip Krutchen 4+1 View Model.</a></p>
+			<h2>4+1 Views</h2>
+			<p>To facilitate navigation between the different 4+1 views <b>StarUML</b> was used. The StarUML project file is located <a href="#">here</a>.</p>
+			<p>Following are just some of the most important project UML diagrams:				
+			<h3>Domain model</h3>
+			<p>Following is a UML class diagram that communicates the problem domain entities and their relationships, usefull to stablish a common vocabulary among all participants in a project and serve as an input during design activities.
+			<a href="../images/design/domain.png">
+				<img  src="../images/design/domain.png">
+			</a>
+			<h3>System architecture</h3>
+			<p>"All architecture is design but not all design is architecture” (Grady Booch). To design is to give shape, and even when we write a line of codewe shape it by selecting expressions operands and operators, naming identifiers... However, not all design qualifies as architecture. Architecture typically refers to high-level design, focusing on essential elements while ignoring the irrelevant, and involves significant design decisions where "significant" is measured by the cost of change.</p> 
+			<p>For a hardware software system, we can reason about about a system architecture with software components that interact with each other and that are deployed in physical machines. Below is a UML deployment diagram describing a typical deployment with IoT Assistant.</p>
+			<a href="../images/design/deployment.png">
+				<img  src="../images/design/deployment.png">
+			</a>
+			<p>The deployment diagram above includes several software components, each of which has its own software architecture, which will be detailed later..</p>		
+			<h4>Database</h4>
+			<p>IoT Assistant use a H2 on file database located in the <i>$HOME</i> directory. If the database does not exist when IoT Assistant is launched, it will be created automatically. To use a different database, create an <i>application.properties</i> file in the same folder where the .jar is run, overriding the following <i>Spring Boot (2.3.0.RELEASE)</i> properties:
+			<div class="highlight">
+				<pre>
+					<span class="nb"># Database URL</span>
+					<span class="n">spring.datasource.url=</span>
+					<span class="nb"># Database credentials</span>
+					<span class="n">spring.datasource.username=</span>
+					<span class="n">spring.datasource.password=</span>
+				</pre>
+			</div>
+			<h3>Use Cases View</h3>
+			<a href="../images/design/usecasesview.png">
+				<img  src="../images/design/usecasesview.png">
+			</a>
+			<h4>Use Cases Diagrams</h4>
+			<a href="../images/design/usecases1.png">
+				<img  src="../images/design/usecases1.png">
+			</a>
+			<a href="../images/design/usecases2.png">
+				<img  src="../images/design/usecases2.png">
+			</a>
+			<a href="../images/design/usecases3.png">
+				<img  src="../images/design/usecases3.png">
+			</a>
+			<h3>Design View</h3>
+			<a href="../images/design/designview.png">
+				<img  src="../images/design/designview.png">
+			</a>
+			<h4>IoT Assistant component Architecture Design (with class diagram)</h4>
+			<p>
+			<a href="../images/design/architecturedesign.png">
+				<img  src="../images/design/architecturedesign.png">
+			</a>	
+			<h4>Update sensor value use case design (with collaboration diagram)</h4>
+			<p>
+			<a href="../images/design/usecasedesign.png">
+				<img  src="../images/design/usecasedesign.png">
+			</a>		
+		</section>
+
+
+		
+		
+		
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

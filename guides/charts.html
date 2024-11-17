@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>Managing charts</h1>
+			<p>For any installed sensor, click <i>Charts</i> in the left navigation bar to view a chart for each property, showing value changes over time.</p>
+			<p><u>By default, charts display data just for last week with a 5-minute sample interval.</u></p>
+			<p>You can create custom charts with adjustable timeframes and sample intervals (e.g. daily values over a year).</p>
+			<a href="../images/charts/wizard1.png">
+				<img  src="../images/charts/wizard1.png">
+			</a>
+			<h2>Installing a custom chart</h2>
+			<p>To install a new chart, go to <i>Install</i> > <i>Install chart</i> in the left navigation bar to open the setup wizard.</p>
+			<p>1 - Select the <b>sensor</b> and the <b>property</b> you want to chart and click <i>Next</i>.</p>
+			<a href="../images/charts/wizard2.png">
+				<img  src="../images/charts/wizard2.png">
+			</a>
+			<p>2 - Select the chart type. For Line Chart, select Line Chart and click <i>Next</i></p>
+			<a href="../images/charts/wizard3.png">
+				<img  src="../images/charts/wizard3.png">
+			</a>
+			</p>3 - Enter interval information.</p>
+			<p>The <b>Chart interval</b> defines how long values will be displayed (e.g., 1 month shows data from the last month).</p>
+			<p>The <b>Sample interval</b> sets the minimum time between samples, regardless of new values published by the sensor in the meantime. Select <b>No interval</b> for all values to be charted.</p>
+			<a href="../images/charts/wizard4.png">
+				<img  src="../images/charts/wizard4.png">
+			</a>
+			<p>4 - Finally, click on <i>Finish</i> to proceed. . If everything is set up correctly, you'll be redirected to the Charts page where all charts are displayed. On this page its also possible to delete any chart.</p>
+			<a href="../images/charts/wizard5.png">
+				<img  src="../images/charts/wizard5.png">
+			</a>
+		</section>
+
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+	<link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>IoT Assistant</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">	
+        <h1><img src="../images/favicon.png"><a href="../index.html">IoT Assistant</a></h1>
+        <h2>Open source application designed for quick and easy management of programmable IoT devices</h2>
+        <img class="preview" src="../images/preview.jpg">
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+			<h1>Managing GPS's</h1>
+			<h2>Installing a MQTT GPS</h2>
+			<p>To install a MQTT GPS go to <i>Install</i> > <i>Install GPS</i> in the left navigation bar to open the setup wizard.</p>
+			<p>1 - Enter a <b>name</b> and <b>description</b> the new GPS and click <i>Next</i></p>
+			<a href="../images/gpses/wizard1.png">
+				<img  src="../images/gpses/wizard1.png">
+			</a>
+			</p>2 - Select an <b>interface</b>. For an <b>MQTT</b> GPS, choose MQTT and click <i>Next</i></p>
+			<a href="../images/gpses/wizard2.png">
+				<img  src="../images/gpses/wizard2.png">
+			</a>
+			<p>3 - In the next step, confirm the settings provided. Optionally, set a <b>watchdog</b> interval to receive  notifications if the GPS fails to communicate its position within a specified time.<p>
+			<a href="../images/gpses/wizard3.png">
+				<img  src="../images/gpses/wizard3.png">
+			</a>
+			<p>5 - Finally click on <i>Finish</i> to proceed. If everything is set up correctly, you'll be redirected to the GPS's page where installed GPS's are displayed.</p>
+			<p>On this page, GPS's positions are displayed as <b>Unknown</b> if no position has been published yet. Otherwise, the last published position in a map and its date are displayed. From here, you can also disable the watchdog or delete the GPS.
+			<a href="../images/gpses/wizard4.png">
+				<img  src="../images/gpses/wizard4.png">
+			</a>
+			<h2>The MQTT GPS</h2>
+			<p>The GPS sensor should publish values to the same broker that IoT Assistant is connected to (see  <a href="./settings.html#main-content">this guide</a> for broker configuration).</p>
+			<h3>Topic</h3>
+			<p>GPS position should be published to <i>gps/{gps name}</i>  with <i>{gps name}</i> matching the name given during installation. For example, a GPS named "Coche Miguel" would use the topic:</p>
+			<div class="highlight">
+				<pre><span class="gr">gps/Coche Miguel</span></pre>
+			</div>
+			<h3>JSON</h3>
+			<p>The message published by the GPS should be a JSON string looking like this:</p>
+			<div class="highlight">
+				<pre><span class="n">{<span class="gr">"longitude"</span> : <span class="m">"40.753"</span>, <span class="gr">"latitude"</span>: <span class="m">"-73.983"</span>}</span></pre>
+			</div>
+			<h3>Arduino code</h3>
+			
+			<h2>Installing The Things Network GPS</h2>
+			<p>To install a GPS connected to <a href="https://www.thethingsnetwork.org/">The Things Network</a>, follow the same steps as for MQTT, but select The Things Network as the interface instead of MQTT and click <i>Next</i>.</p>
+			<a href="../images/gpses/wizard5.png">
+				<img  src="../images/gpses/wizard5.png">
+			</a>
+			<p>Then, provide the <b>End Device ID</b>, which is the ID used when the GPS was set up on The Things Network platform.</p>
+			<a href="../images/gpses/wizard6.png">
+				<img  src="../images/gpses/wizard6.png">
+			</a>
+			<h2>The Things network GPS</h2>
+			<h3>Payload</h3>
+			<p>A Things Network GPS should publish a binary payload in this format for IoT Assistant to understand::</p>
+			<div class="highlight">
+				<pre>
+					<span class="nb">&lt;</span><span class="ni">latitude</span><span class="nb">&gt;</span><span class="nb">&lt;</span><span class="ni">longitude</span><span class="nb">&gt;</span>
+				</pre>
+			</div>
+			<p> Latitude and longitude must be <b>IEEE-754 float</b> values (4 Bytes).
+			<p> A valid payload look like this:
+			<div class="highlight">
+					<pre>
+						<span class="s">11000010100100111111011101001100</span><span class="nb">01000010001000110000001100010010</span>
+						<span class="s">11000010100100111111011101001100</span><span class="n"> : -73.983 (latitude)</span>
+						<span class="nb">01000010001000110000001100010010</span><span class="n"> : 40.753 (longitude)</span>
+					</pre>
+			</div>
+			<p>The binary value size above is 8 Bytes. Its hex representation is C293F74C42230312
+				<h3>Arduino code</h3>
+		</section>
+
+
+		
+		
+		
+        <aside id="sidebar">
+			<a href="https://github.com/iot-assistant/iot-assistant/releases/download/v0.1.0-Release/iot-assistant-0.1.0.jar" class="button">
+				<small>Download</small>
+			.jar file
+			</a>
+			<a href="https://github.com/iot-assistant" class="button"><small>View project on</small> GitHub</a>
+			<br>
+
+			<ul>
+				<li class="nav-bar">Getting started
+					<ul>
+						<li><a href="./running.html#main-content">Running IoT Assistant</a></li>
+						<li><a href="./settings.html#main-content">Configuring IoT Assistant</a></li>
+					</ul>
+				</li>
+			</ul> 
+			<ul >
+				<li class="nav-bar">Using Iot Assistant
+					<ul>
+						<li><a href="./sensors.html#main-content">Managing Sensors</a></li>
+						<li><a href="./actuators.html#main-content">Managing Actuators</a></li>
+						<li><a href="./cameras.html#main-content">Managing Cameras</a></li>
+						<li><a href="./gpses.html#main-content">Managing GPS</a></li>
+						<li><a href="./charts.html#main-content">Managing Charts</a></li>
+						<li><a href="./rules.html#main-content">Managing Rules</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Design
+					<ul>
+						<li><a href="./design.html#main-content">4+1 View Model</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul >
+				<li class="nav-bar">Arduino
+					<ul>
+						<li><a href="./arduino.html#main-content">Libraries</a></li>
+					</ul>
+				</li>
+			</ul>
+			<br>
+			<p class="repo-owner"><a href="https://github.com/iot-assistant">IoT Assistant</a> is maintained by <a href="https://www.linkedin.com/in/miguel-bernabe-59098950/">Miguel Bernabé</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>
