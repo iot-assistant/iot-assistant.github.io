@@ -40,6 +40,7 @@
         <section id="main-content">
 			<h1>ESP32 Arduino libraries and examples</h1>
 			<p>The provided libraries and examples for the ESP32 cover typical IoT device behaviors, so usually, you only need to copy the example and adjust the settings for your specific project.</p>
+			<p>A compressed file with all the Arduino libraries needed for the examples is available <a href="https://github.com/iot-assistant/arduino/releases/download/v0.1.0-Release/libraries-0.1.0.zip"><b>here</b></a>
 			<h2>Sensors</h2>
 			<p>When a sensor is integrated into a computer system, its behavior generally falls into one of these categories:</p>
 			<ul class="ul-content">
@@ -60,21 +61,21 @@
 				<li><b>ESP32Sensor:</b> Extends <i>IoTSensor</i> with the added capability to optionally enter sleep mode between value publications. Objects can also be configured to automatically get sensor values from GPIOs</li>
 				<li><b>FireBeetleC6Sensor, M5AtomSensor...:</b> Extends <i>ESP32Sensor</i> with the additional ability to initialize and display information via an LCD or LED, depending on the board.</li>
 			</ul>
-			<h3>Examples</h3>
+			<h3 id="sensor-examples">Examples</h3>
 			<h4>Publishing a value periodically over a network interface</h4>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_M5Stack_Env_III_Unit_Sensor_M5Stack_Atom_MQTT.ino</b></a>:</b> <b>Ambient MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atom-lite-esp32-development-kit"><i>M5Stack Atom</i></a> connected to <a href="https://shop.m5stack.com/products/env-iii-unit-with-temperature-humidity-air-pressure-sensor-sht30-qmp6988"><i>ENV III unit</i></a> to publish temperature, humidity and air pressure every minute.</li>
-				<li><b><a href="#"><b>sketch_DFRobot_UV_Sensor_Heltec_WiFiLora32V3_LORA.ino</b></a>:</b> <b>UV Lora sensor</b> using a <a href="https://heltec.org/project/wifi-lora-32-v3/"><i>Heltec WiFi Lora 32 V3</i></a> connected to <a href="https://www.dfrobot.com/product-1273.html"><i>GUVA-S12SD UV sensor</i></a> to publish UV Index every 10 minutes.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_Env_III_Unit_Sensor_M5Stack_Atom_MQTT/sketch_M5Stack_Env_III_Unit_Sensor_M5Stack_Atom_MQTT.ino"><b>sketch_M5Stack_Env_III_Unit_Sensor_M5Stack_Atom_MQTT.ino</b></a>:</b> <b>Ambient MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atom-lite-esp32-development-kit"><i>M5Stack Atom</i></a> connected to <a href="https://shop.m5stack.com/products/env-iii-unit-with-temperature-humidity-air-pressure-sensor-sht30-qmp6988"><i>ENV III unit</i></a> to publish temperature, humidity and air pressure every minute.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_DFRobot_UV_Sensor_Heltec_WiFiLora32V3_LORA/sketch_DFRobot_UV_Sensor_Heltec_WiFiLora32V3_LORA.ino"><b>sketch_DFRobot_UV_Sensor_Heltec_WiFiLora32V3_LORA.ino</b></a>:</b> <b>UV Lora sensor</b> using a <a href="https://heltec.org/project/wifi-lora-32-v3/"><i>Heltec WiFi Lora 32 V3</i></a> connected to <a href="https://www.dfrobot.com/product-2528.html"><i>UV sensor</i></a> to publish UV Index every 10 minutes.</li>
 			</ul>
 			<h4>Publishing a value periodically and also whenever the value changes</h4>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_M5Stack_DLight_Unit_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Light MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/dlight-unit-ambient-light-sensor-bh1750fvi-tr"><i>Light Unit</i></a> to publish light level every 10 minutes and also if light level changes >= abs(300 lux)</li>
-				<li><b><a href="#"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and also when it detects movement.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_DLight_Unit_Sensor_M5Stack_AtomS3_MQTT/sketch_M5Stack_DLight_Unit_Sensor_M5Stack_AtomS3_MQTT.ino"><b>sketch_M5Stack_DLight_Unit_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Light MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/dlight-unit-ambient-light-sensor-bh1750fvi-tr"><i>Light Unit</i></a> to publish light level every 10 minutes and also if light level changes >= abs(300 lux)</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT/sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT.ino"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and also when it detects movement.</li>
 			</ul>
 			<h4>Any of the above but entering sleep mode in between</h4>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_DFRobot_Soil_Moisture_Sensor_FireBeetleC6_MQTT_LowPower.ino</b></a>:</b> <b>Soil Moisture MQTT sensor</b> using a <a href="https://www.dfrobot.com/product-2771.html"><i>FireBeetle C6</i></a> connected to <a href="https://www.dfrobot.com/product-1385.html"><i>Soil Moisture sensor</i></a> to publish soil moisture RH% and battery level every ten minutes and sleeping in between.</li>
-				<li><b><a href="#"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_SSL_LowPower.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and sleep. It detects movement even during sleep mode.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_DFRobot_Soil_Moisture_Sensor_FireBeetleC6_MQTT_LowPower/sketch_DFRobot_Soil_Moisture_Sensor_FireBeetleC6_MQTT_LowPower.ino"><b>sketch_DFRobot_Soil_Moisture_Sensor_FireBeetleC6_MQTT_LowPower.ino</b></a>:</b> <b>Soil Moisture MQTT sensor</b> using a <a href="https://www.dfrobot.com/product-2771.html"><i>FireBeetle C6</i></a> connected to <a href="https://www.dfrobot.com/product-1385.html"><i>Soil Moisture sensor</i></a> to publish soil moisture RH% and battery level every ten minutes and sleeping in between.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_LowPower/sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_LowPower.ino"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_SSL_LowPower.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and sleep. It detects movement even during sleep mode.</li>
 			</ul>
 			<h2>Actuators</h2>
 			<p>When integrated into a computer system, an actuator receives value updates and periodically publishes its current value, including changes. However, actuators cannot enter sleep mode since they must always be ready to receive a value update (the ESP32 cannot wake up from receiving network frames).</p>
@@ -87,10 +88,10 @@
 				<li><b>ESP32Actuator:</b> Extends <i>IoTSensor</i> with the added capability to automatically get and update GPIOs values</li>
 				<li><b>M5AtomActuator, M5AtomS3Actuator...:</b> Extends <i>ESP32Actuator</i> with the additional ability to inizialite display information via an LCD or LED, depending on the board.</li>
 			</ul>
-			<h3>Examples</h3>
+			<h3 id="actuator-examples">Examples</h3>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL</b></a>:</b> <b>Socket MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atom-socket-kit-hlw8023-jp-us"><i>M5Stack Atom Socket</i></a>: It’s a sensor that measures current, power, and voltage, and also an actuator capable of turning on/off any device plugged into a socket.</li>
-				<li><b><a href="#"><b>sketch_M5Stack_AtomSpeaker_Flash_Unit_M5Stack_Atom_MQTT_SSL</b></a>:</b> <b>Speaker MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atomic-speaker-base-ns4168"><i>M5Stack Atom Speaker</i></a> to play any sound.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL/sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL.ino"><b>sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL.ino</b></a>:</b> <b>Socket MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atom-socket-kit-hlw8023-jp-us"><i>M5Stack Atom Socket</i></a>: It’s a sensor that measures current, power, and voltage, and also an actuator capable of turning on/off any device plugged into a socket.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_M5Stack_AtomSpeaker_M5Stack_Atom_MQTT_SSL/sketch_M5Stack_AtomSpeaker_M5Stack_Atom_MQTT_SSL.ino"><b>sketch_M5Stack_AtomSpeaker_M5Stack_Atom_MQTT_SSL.ino</b></a>:</b> <b>Speaker MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atomic-speaker-base-ns4168"><i>M5Stack Atom Speaker</i></a> to play any sound.</li>
 			</ul>
 			<h2>GPS</h2>
 			<p>When an GPS is integrated into a computer system, its behavior typically involves publishing the current position periodically or when it changes, and maybe enter sleep mode in between.</p>
@@ -103,9 +104,9 @@
 				<li><b>ESP32GPS:</b> Extends <i>IoTGPS</i> with the added capability to optionally enter sleep mode between position publications</li>
 				<li><b>M5AtomGPS, M5AtomS3GPS...:</b> Extends <i>ESP32GPS</i> with the additional ability to initialize and display information via an LCD or LED, depending on the board.</li>
 			</ul>
-			<h3>Examples</h3>
+			<h3 id="gps-examples">Examples</h3>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_Gps_Heltec_WirelessTracker_Lora_LowPower</b></a>:</b> <b>Lora GPS</b> using a <a href="https://heltec.org/project/wireless-tracker/"><i>Heltec Wireless Tracker</i></a> publishing its position every 10 minutes and sleeping in between.</li>
+				<li><b><a href="https://github.com/iot-assistant/arduino/blob/main/sketches/sketch_Gps_Heltec_WirelessTracker_Lora/sketch_Gps_Heltec_WirelessTracker_Lora.ino"><b>sketch_Gps_Heltec_WirelessTracker_Lora</b></a>:</b> <b>Lora GPS</b> using a <a href="https://heltec.org/project/wireless-tracker/"><i>Heltec Wireless Tracker</i></a> publishing its position every 10 minutes.</li>
 			</ul>
 		</section>
         <aside id="sidebar">
