@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRXWMN4BR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XLRXWMN4BR');
+    </script>  
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -68,11 +77,11 @@
 				<li><b><a href="#"><b>sketch_M5Stack_PIR_Sensor_M5Stack_AtomS3_MQTT_SSL_LowPower.ino</b></a>:</b> <b>Motion MQTT sensor</b> using a <a href="https://shop.m5stack.com/products/atoms3-dev-kit-w-0-85-inch-screen"><i>M5Stack AtomS3</i></a> connected to <a href="https://shop.m5stack.com/products/pir-module"><i>PIR unit</i></a> to publish every 15 minutes and sleep. It detects movement even during sleep mode.</li>
 			</ul>
 			<h2>Actuators</h2>
-			<p>When integrated into a computer system, an actuator receives value updates and periodically publishes its current value, including changes. However, actuators cannot enter sleep mode since they must always be ready to receive updates (the ESP32 cannot wake up from receiving network frames).</p>
+			<p>When integrated into a computer system, an actuator receives value updates and periodically publishes its current value, including changes. However, actuators cannot enter sleep mode since they must always be ready to receive a value update (the ESP32 cannot wake up from receiving network frames).</p>
 			<h3>Libraries</h3>
 			<p>The main library classes provided are:</p>
 			<ul class="ul-content">
-				<li><b>IoTActuator:</b> Abstract base class that manages periodic value publishing in collaboration with <i>ActuatorPublishInterface</i>. It allows registering callbacks to retrieve and update actuator values.</li>
+				<li><b>IoTActuator:</b> Abstract base class that manages the publication of values in collaboration with <i>ActuatorPublishInterface</i>. It allows registering callbacks to retrieve and update actuator values.</li>
 				<li><b>ActuatorPublishInterface:</b> Abstract class responsible for sending sensor values over a network interface, with derived classes <i>MqttActuatorPublishInterface</i>. It allows registering a callback that is invoked when an actuator value change command is received. 
 				<li><b>ESP32WiFiSTA:</b> Manages WiFi connectivity and provides <i>Client</i> objects needed by some <i>ActuatorPublishInterface</i> subclasses.
 				<li><b>ESP32Actuator:</b> Extends <i>IoTSensor</i> with the added capability to automatically get and update GPIOs values</li>
@@ -80,7 +89,7 @@
 			</ul>
 			<h3>Examples</h3>
 			<ul class="ul-content">
-				<li><b><a href="#"><b>sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL</b></a>:</b> <b>Socket MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atom-socket-kit-hlw8023-jp-us"><i>M5Stack Atom Socket</i></a> to turn on/off any socket plugged device.</li>
+				<li><b><a href="#"><b>sketch_M5Stack_AtomSocket_Actuator_M5Stack_AtomLite_MQTT_SSL</b></a>:</b> <b>Socket MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atom-socket-kit-hlw8023-jp-us"><i>M5Stack Atom Socket</i></a>: It’s a sensor that measures current, power, and voltage, and also an actuator capable of turning on/off any device plugged into a socket.</li>
 				<li><b><a href="#"><b>sketch_M5Stack_AtomSpeaker_Flash_Unit_M5Stack_Atom_MQTT_SSL</b></a>:</b> <b>Speaker MQTT actuator</b> using a <a href="https://shop.m5stack.com/products/atomic-speaker-base-ns4168"><i>M5Stack Atom Speaker</i></a> to play any sound.</li>
 			</ul>
 			<h2>GPS</h2>
